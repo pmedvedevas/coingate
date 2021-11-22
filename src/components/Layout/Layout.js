@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../Header/Header";
+import { Header } from "../Header";
 import "./Layout.scss";
 import PropTypes from "prop-types";
 

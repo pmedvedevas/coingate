@@ -13,19 +13,19 @@ button {
 
 .btn {
   &__primary {
-    background-color: $color-button-active;
+    background-color: $color-cyan;
     color: $color-white;
     border-radius: 4px 50px 50px 40px;
     transition: all 300ms ease-in;
     &:hover:not([disabled]),
     &:focus:not([disabled]) {
-      background-color: darken($color-button-active, 5%);
+      background-color: darken($color-cyan, 5%);
     }
     &:active:not([disabled]) {
-      background-color: darken($color-button-active, 10%);
+      background-color: darken($color-cyan, 10%);
     }
     &:disabled {
-      background-color: $color-button-disabled;
+      background-color: $color-dark-gray;
       box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
     }
   }
