@@ -2,16 +2,10 @@
 
 $default-font-family: 'Roboto', sans-serif;
 
-body {
-  font-family: $default-font-family;
-}
-
-html {
-    font-size: 62.5%;
-}
-
+$font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-heavy: 700;
 
+$font-size-small: 1.7rem;
 $font-size-medium: 1.8rem;
 

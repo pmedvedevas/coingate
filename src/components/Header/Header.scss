@@ -1,0 +1,54 @@
+@import "../../styles/base/base";
+
+.nav-bar {
+  align-items: center;
+  box-shadow: 0px 5px 11px rgba(29, 0, 62, 0.07);
+  display: flex;
+  padding: 0 3rem;
+  gap: 6.5rem;
+  height: 7rem;
+  &__logo {
+    flex-shrink: 0;
+  }
+  &__main-nav {
+    display: none;
+  }
+  &__auth-nav {
+    display: none;
+  }
+  &__burger-menu {
+    margin-left: auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .nav-bar {
+    height: 10rem;
+    &__main-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      list-style: none;
+      max-width: 43rem;
+      width: 100%;
+      font-size: $font-size-small;
+      color: $color-gray;
+      font-weight: $font-weight-normal;
+      white-space: nowrap;
+    }
+    &__auth-nav {
+      margin-left: auto;
+      display: flex;
+      gap: 1.5rem;
+    }
+    &__burger-menu {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .nav-bar {
+    padding: 0 7rem 0 5rem;
+  }
+}
