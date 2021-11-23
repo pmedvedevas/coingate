@@ -8,8 +8,10 @@ export const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Header />
-      <CrookedContainer />
-      <main className="layout__content">{children}</main>
+      <main className="layout__content">
+        <CrookedContainer />
+        {children}
+      </main>
     </div>
   );
 };

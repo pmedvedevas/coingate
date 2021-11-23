@@ -1,0 +1,29 @@
+@import "../../styles/base/base";
+
+.content-container {
+  border: 3px solid red;
+  max-width: 130rem;
+  margin-top: 14rem;
+  margin-left: 10vw;
+
+  display: grid;
+  grid-template-columns: minmax(32rem, 62.5rem) minmax(30rem, 62.5rem);
+  gap: 1.5rem;
+  &__heading {
+    color: $color-white;
+    font-size: $font-size-h1;
+    font-weight: $font-weight-heavy;
+    line-height: calc(66 / 60);
+    &__emphasis {
+      color: $color-cyan;
+    }
+  }
+  &__paragraph {
+    color: $color-white;
+    font-size: $font-size-large;
+    line-height: calc(31.2 / 24);
+    button{
+      color: $color-cyan;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "../../styles/base/base";
+
+.conversion-table {
+    height: 528px;
+    width: 465px;
+    border-radius: 20px;
+    background-color: $color-white;
+    grid-row: span 2;
+}

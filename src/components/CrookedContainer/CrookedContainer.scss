@@ -1,26 +1,20 @@
 @import "../../styles/base/base";
 
-.parent {
-  display: relative;
-  z-index: -1;
-  overflow: hidden;
-  min-height: 1000px;
-}
-
 .crooked-container {
+  position: absolute;
+  z-index: -1;
   background-color: #5022ed;
-  width: 150%;
+  width: 150vw;
   height: 1493px;
   transform: rotate(-8deg);
+  margin-left: -40vw;
   margin-top: -757px;
-  margin-left: -40%;
 }
 
 @media only screen and (min-width: 900px) {
   .crooked-container {
     transform: matrix(1, -0.04, -0.04, -1, 0, 0);
-    margin-left: 13.8%;
-    margin-right: -5.7%;
+    margin-left: 2vw;
     border-radius: 60px;
   }
 }

@@ -17,9 +17,14 @@ export const Header = () => {
 
       <div className="nav-bar__auth-nav">
         <Button label="Log In" type="secondary" size="normal" />
-        <Button label="Sign Up" type="primary" size="normal" icon={<ArrowRight />} />
+        <Button
+          label="Sign Up"
+          type="primary"
+          size="normal"
+          icon={<ArrowRight />}
+        />
       </div>
-      <BurgerMenu class="nav-bar__burger-menu"/>
+      <BurgerMenu className="nav-bar__burger-menu" />
     </header>
   );
 };
