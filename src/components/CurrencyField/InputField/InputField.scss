@@ -1,0 +1,27 @@
+@import "../../../styles/base/base";
+
+.input-field {
+  color: $color-black-opacity-85;
+  font-size: $font-size-medium;
+  text-align: center;
+  border: none;
+  caret-color: transparent;
+  border-radius: 20px;
+  padding: 0.8rem 0;
+  width: auto;
+  max-width: 15rem;
+  &:focus {
+    outline: none;
+    background-color: darken($color-white, 3%);
+  }
+  &:hover {
+      background-color: darken($color-white, 3%);
+  }
+  transition: background-color 800ms ease-out;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

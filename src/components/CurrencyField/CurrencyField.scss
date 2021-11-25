@@ -1,0 +1,33 @@
+@import "../../styles/base/base";
+
+.currency-field {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $color-gray-border;
+    padding: 0 2.5rem;
+    height: 4.8rem;
+    border-radius: 2rem;
+    &__label {
+        color: $color-black-opacity-85;
+        font-size: $font-size-medium;
+    }
+    &__display {
+        color: $color-black-opacity-85;
+        font-size: $font-size-medium;
+    }
+    &__currency {
+        color: $color-black-opacity-60;
+        font-size: $font-size-xxsmall;
+        display: flex;
+        gap: 1.2rem;
+        justify-content:space-between;
+        padding-left: 1.2rem;
+        align-items: center;
+        height: 3rem;
+        max-width: 9.2rem;
+        border-left: 1px solid $color-gray-border;
+    }
+
+}

@@ -20,6 +20,7 @@ button {
     &:hover:not([disabled]),
     &:focus:not([disabled]) {
       background-color: darken($color-cyan, 5%);
+      cursor: pointer;
     }
     &:active:not([disabled]) {
       background-color: darken($color-cyan, 10%);
@@ -37,6 +38,7 @@ button {
     &:hover:not([disabled]),
     &:focus:not([disabled]) {
       background-color: darken($color-white, 5%);
+      cursor: pointer;
     }
     &:active:not([disabled]) {
       background-color: darken($color-white, 10%);

@@ -1,14 +1,15 @@
 @import "../../styles/base/base";
 
 .content-container {
-  border: 3px solid red;
   max-width: 130rem;
   margin-top: 14rem;
   margin-left: 10vw;
+  padding-right: 2rem;
 
   display: grid;
   grid-template-columns: minmax(32rem, 62.5rem) minmax(30rem, 62.5rem);
-  gap: 1.5rem;
+  gap: 4rem;
+  justify-items: end;
   &__heading {
     color: $color-white;
     font-size: $font-size-h1;
@@ -22,8 +23,18 @@
     color: $color-white;
     font-size: $font-size-large;
     line-height: calc(31.2 / 24);
-    button{
+    .btn__secondary{
+      height: auto;
+      padding-top: 4rem;
       color: $color-cyan;
+      &:hover, &:focus {
+        background-color: transparent;
+        color: darken($color-cyan, 5%);
+      }
+      &:active {
+        background-color: transparent;
+        color: darken($color-cyan, 10%);
+      }
     }
   }
 }

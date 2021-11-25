@@ -1,0 +1,61 @@
+@import "../../styles/base/base";
+
+.dropdown {
+  width: 100%;
+  font-size: $font-size-xsmall;
+  color: $color-black;
+  position: relative;
+  cursor: pointer;
+  &__heading {
+    font-size: 1.5rem;
+    color: $color-black-opacity-85;
+    padding-bottom: 3.7rem;
+    line-height: calc(22.5 / 15);
+  }
+  &__selected {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border: 1px solid $color-gray-border;
+    padding: 0 2.5rem;
+    height: 4.8rem;
+    border-radius: 2rem;
+    img {
+      height: 3rem;
+      padding-right: 1rem;
+    }
+    svg {
+      margin-left: auto;
+      transition: all 500ms ease;
+    }
+    &--open {
+      svg {
+        transform: scaleY(-1);
+      }
+    }
+  }
+  &__options {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 2rem;
+  }
+  &__option {
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    height: 4.8rem;
+    border-radius: 2rem;
+    width: 100%;
+    img {
+      width: 4.4rem;
+      padding-right: 1rem;
+    }
+  }
+  &__option:hover {
+    background-color: darken($color-white, 5%);
+  }
+}

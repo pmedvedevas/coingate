@@ -1,5 +1,5 @@
 import { Layout } from "./components/Layout";
-import { ContentContainer } from "./components/GridContainer";
+import { ContentContainer } from "./components/ContentContainer";
 
 function App() {
   return (

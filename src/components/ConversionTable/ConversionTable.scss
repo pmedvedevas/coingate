@@ -1,9 +1,34 @@
 @import "../../styles/base/base";
 
 .conversion-table {
-    height: 528px;
-    width: 465px;
-    border-radius: 20px;
+  width: 100%;
+  grid-row: span 2;
+  height: 528px;
+  min-width: 390px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-end;
+  &--container {
+    max-width: 74.4%;
     background-color: $color-white;
-    grid-row: span 2;
+    padding: 10.7rem 2.7rem 2.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 2.5rem;
+    box-shadow: 0px 5px 11px rgba(29, 0, 62, 0.07);
+    .btn__primary {
+      margin-top: auto;
+    }
+  }
+  &--frame {
+    position: relative;
+    transform: rotate(-5.53deg);
+    margin-right: -66%;
+    margin-top: -7%;
+    z-index: -1;
+    background-color: #e9f6ff;
+    max-width: 74.4%;
+  }
 }
