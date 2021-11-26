@@ -3,7 +3,13 @@ import { ReactComponent as ArrowDown } from "../../assets/svg/ArrowDown.svg";
 import PropTypes from "prop-types";
 import "./Dropdown.scss";
 
-export const Dropdown = ({ options, heading }) => {
+const assetsPath = require.context(
+  "../../assets/drop-icons",
+  false,
+  /\.(png|jpe?g|svg)$/
+);
+
+export const Dropdown = ({ options, heading, size }) => {
   const [selected, setSelected] = useState(options[0]);
   const [open, setOpen] = useState(false);
 
@@ -24,21 +30,31 @@ export const Dropdown = ({ options, heading }) => {
 
   return (
     <div className="dropdown">
-    {/* Below - renders selected option with its icon*/}
+      {/* Below - renders selected option with its icon*/}
       {heading && <p className="dropdown__heading">{heading}</p>}
-      <div
+      <button
         className={
-          open
-            ? "dropdown__selected dropdown__selected--open"
-            : "dropdown__selected"
+          size === "big"
+            ? open
+              ? "dropdown__selected dropdown__selected--big dropdown__selected--open"
+              : "dropdown__selected dropdown__selected--big"
+            : open
+            ? "dropdown__selected dropdown__selected--small dropdown__selected--open"
+            : "dropdown__selected dropdown__selected--small"
         }
         onClick={handleOpen}
-        value="selected.title"
+        value={selected.title}
       >
-        <img src={selected.img} alt="" />
+        {selected.img && (
+          <img
+            src={assetsPath(selected.img).default}
+            alt=""
+            className="dropdown__selected-icon"
+          />
+        )}
         {selected.title}
         <ArrowDown />
-      </div>
+      </button>
       {/* If state open is true dropdown options are rendered except for the selected option */}
       {open && (
         <ul className="dropdown__options">
@@ -48,10 +64,20 @@ export const Dropdown = ({ options, heading }) => {
                 <li
                   key={option.title}
                   onClick={handleSelect}
-                  className="dropdown__option"
+                  className={
+                    size === "big"
+                      ? "dropdown__option dropdown__option--big"
+                      : "dropdown__option"
+                  }
                   value={index}
                 >
-                  <img src={option.img} alt="" />
+                  {assetsPath(option.img) && (
+                    <img
+                      src={assetsPath(option.img).default}
+                      alt=""
+                      className="dropdown__option-icon"
+                    />
+                  )}
                   {option.title}
                 </li>
               )
@@ -64,4 +90,5 @@ export const Dropdown = ({ options, heading }) => {
 
 Dropdown.propTypes = {
   options: PropTypes.array.isRequired,
+  heading: PropTypes.string,
 };
