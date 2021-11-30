@@ -2,14 +2,14 @@ import "./InputField.scss";
 import React from "react";
 import PropTypes from "prop-types";
 
-export const InputField = ({ name, type, onChange, value }) => {
+export const InputField = ({ name, type, handleChange, value }) => {
   return (
     <input
       id={name}
       name={name}
       type={type}
       value={value}
-      onChange={onChange}
+      onChange={handleChange}
       className="input-field"
       size=''
     />

@@ -1,0 +1,23 @@
+@import "../../../styles/base/base";
+
+.confirmation-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  color: $color-black-opacity-60;
+  font-size: $font-size-medium;
+  text-align: center;
+  &__info {
+    color: $color-blue;
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
+  .emphasis{
+      color: $color-cyan;
+  }
+  .btn__primary {
+    margin-top: 0;
+  }
+}

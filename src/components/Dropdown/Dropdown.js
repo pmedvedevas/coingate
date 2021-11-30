@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as ArrowDown } from "../../assets/svg/ArrowDown.svg";
 import PropTypes from "prop-types";
 import "./Dropdown.scss";
@@ -9,12 +9,20 @@ const assetsPath = require.context(
   /\.(png|jpe?g|svg)$/
 );
 
-export const Dropdown = ({ options, heading, size }) => {
-  const [selected, setSelected] = useState(options[0]);
+export const Dropdown = ({
+  options,
+  heading,
+  size,
+  defaultSelection,
+  setCryptoToBuy,
+  setPaymentCurrency,
+}) => {
+  const [selected, setSelected] = useState(defaultSelection);
   const [open, setOpen] = useState(false);
+  // console.log(defaultSelection);
 
   const handleSelect = ({ target }) => {
-    setSelected(options[target.value]);
+    setSelected(options[target.getAttribute('value')]);
     setOpen(false);
   };
 
@@ -27,6 +35,11 @@ export const Dropdown = ({ options, heading, size }) => {
       setOpen(false);
     }
   };
+
+  useEffect(() => {
+    setCryptoToBuy && setCryptoToBuy(selected.title);
+    setPaymentCurrency && setPaymentCurrency(selected.title);
+  }, [selected]);
 
   return (
     <div className="dropdown">
@@ -45,13 +58,11 @@ export const Dropdown = ({ options, heading, size }) => {
         onClick={handleOpen}
         value={selected.title}
       >
-        {selected.img && (
-          <img
-            src={assetsPath(selected.img).default}
-            alt=""
-            className="dropdown__selected-icon"
-          />
-        )}
+        <img
+          src={assetsPath(selected.img).default}
+          alt=""
+          className="dropdown__selected-icon"
+        />
         {selected.title}
         <ArrowDown />
       </button>
@@ -71,13 +82,12 @@ export const Dropdown = ({ options, heading, size }) => {
                   }
                   value={index}
                 >
-                  {assetsPath(option.img) && (
-                    <img
-                      src={assetsPath(option.img).default}
-                      alt=""
-                      className="dropdown__option-icon"
-                    />
-                  )}
+                  <img
+                    src={assetsPath(option.img).default}
+                    alt=""
+                    className="dropdown__option-icon"
+                    value={index}
+                  />
                   {option.title}
                 </li>
               )
