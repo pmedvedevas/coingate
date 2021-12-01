@@ -4,10 +4,14 @@
   width: 100%;
   grid-row: span 2;
   height: 528px;
-  min-width: 390px;
+  min-width: 322px;
   border-radius: 20px;
   display: flex;
   justify-content: flex-end;
+      @media screen and (max-width: 1000px) {
+      justify-content: center;
+      height: 453px;
+    }
   &--container {
     max-width: 74.4%;
     background-color: $color-white;
@@ -21,6 +25,9 @@
     .btn__primary {
       margin-top: auto;
     }
+    @media screen and (max-width: 1000px) {
+      padding: 2.7rem 2.7rem;
+    }
   }
   &--frame {
     position: relative;
@@ -30,10 +37,19 @@
     z-index: -1;
     background-color: #e9f6ff;
     max-width: 74.4%;
+    @media screen and (max-width: 1300px) {
+      margin-right: -76%;
+    }
+    @media screen and (max-width: 1200px) {
+      margin-right: -80%;
+    }
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
   }
 }
 
-.crypto-icon{
+.crypto-icon {
   display: block;
   height: 50px;
   position: relative;

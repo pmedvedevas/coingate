@@ -18,6 +18,12 @@
       background-color: darken($color-white, 3%);
   }
   transition: background-color 800ms ease-out;
+  @media screen and (max-width: 1300px){
+    max-width: 11rem;
+  }
+  @media screen and (max-width: 1000px){
+    max-width: 9rem;
+  }
 }
 
 input[type="number"]::-webkit-inner-spin-button,
