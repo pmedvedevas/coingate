@@ -10,5 +10,3 @@ Code needs some refactoring and a more thorough separation of concerns. Also, so
 5. npm install
 6. npm run
 7. Open http://localhost:3000/
-
-### Hope to get feedback from you
