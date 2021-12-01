@@ -9,6 +9,6 @@ Code needs some refactoring and a more thorough separation of concerns. Also, so
 4. In project's folder open terminal and run nvm use
 5. npm install
 6. npm run
-7. In your browser open http://localhost:3000/
+7. Open http://localhost:3000/
 
 ### Hope to get feedback from you
