@@ -2,7 +2,7 @@ import { Button } from "../Button";
 import { ConversionTable } from "../ConversionTable";
 import "./ContentContainer.scss";
 
-export const ContentContainer = ({ children }) => {
+export const ContentContainer = () => {
   return (
     <div className="content-container">
       <h1 className="content-container__heading">
@@ -23,8 +23,6 @@ export const ContentContainer = ({ children }) => {
         </p>
         <Button label="Start now >" type="secondary" size="normal" />
       </article>
-
-      {children}
     </div>
   );
 };

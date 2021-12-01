@@ -7,10 +7,10 @@ import { Button } from "../Button";
 import { LoadingScreen } from "../LoadingScreen";
 import { ConfirmationScreen } from "./ConfirmationScreen";
 
-const corsProxy = "https://stormy-wave-89352.herokuapp.com/";
+const corsProxy = process.env.REACT_APP_CORS_PROXY;
 
 export const ConversionTable = () => {
-  const [tradeRates, setTradeRates] = useState({});
+  const [fetchedData, setFetchedData] = useState({});
   const [merchantCurrencies, setMerchantCurrencies] = useState([]);
   const [traderCurrencies, setTraderCurrencies] = useState([]);
 
@@ -22,22 +22,22 @@ export const ConversionTable = () => {
 
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  const fetchTradeRates = async () => {
+  const fetchData = async () => {
     const response = await fetch(
       `${corsProxy}https://api.coingate.com/v2/rates/`
     );
     const result = await response.json();
-    setTradeRates(result);
+    setFetchedData(result);
   };
 
   const getCurrencies = () => {
-    if (Object.keys(tradeRates).length === 0) return;
-    let fetchedCurrencies = Object.keys(tradeRates.merchant).map((item) => ({
+    if (Object.keys(fetchedData).length === 0) return;
+    let fetchedCurrencies = Object.keys(fetchedData.merchant).map((item) => ({
       img: `./${item.toLowerCase()}.svg`,
       title: item,
     }));
     setMerchantCurrencies(fetchedCurrencies);
-    fetchedCurrencies = Object.keys(tradeRates.trader.buy).map((item) => ({
+    fetchedCurrencies = Object.keys(fetchedData.trader.buy).map((item) => ({
       img: `./${item.toLowerCase()}.svg`,
       title: item,
     }));
@@ -45,23 +45,23 @@ export const ConversionTable = () => {
   };
 
   useEffect(() => {
-    fetchTradeRates();
+    fetchData();
   }, []);
 
   useEffect(() => {
     getCurrencies();
-  }, [tradeRates]);
+  }, [fetchedData]);
 
   useEffect(() => {
-    if (Object.keys(tradeRates).length === 0) return;
-    const rate = tradeRates.trader.buy[cryptoToBuy].EUR;
+    if (Object.keys(fetchedData).length === 0) return;
+    const rate = fetchedData.trader.buy[cryptoToBuy].EUR;
     setAmountToBuy(calcPrice(amountToPay, rate));
   }, [amountToPay, cryptoToBuy, paymentCurrency]);
 
   const calcPrice = (pay, rate) => {
     if (pay && rate && pay / rate >= 0.000001) {
       if (paymentCurrency !== "EUR") {
-        const currencyToEur = tradeRates.merchant[paymentCurrency].EUR;
+        const currencyToEur = fetchedData.merchant[paymentCurrency].EUR;
         return ((pay * currencyToEur) / rate).toFixed(6);
       } else {
         return (pay / rate).toFixed(6);

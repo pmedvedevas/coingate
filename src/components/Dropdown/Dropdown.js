@@ -19,7 +19,6 @@ export const Dropdown = ({
 }) => {
   const [selected, setSelected] = useState(defaultSelection);
   const [open, setOpen] = useState(false);
-  // console.log(defaultSelection);
 
   const handleSelect = ({ target }) => {
     setSelected(options[target.getAttribute('value')]);

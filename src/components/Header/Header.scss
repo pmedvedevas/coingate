@@ -14,11 +14,41 @@
   &__main-nav {
     display: none;
   }
+  &__dropdown {
+    background-color: $color-white;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    list-style: none;
+    z-index: 2;
+    li {
+      padding: 2rem 0;
+      transition: all 250ms ease;
+      color: $color-gray;
+      &:hover,
+      &:active {
+        background-color: darken($color-white, 5%);
+        color: $color-black-opacity-85;
+      }
+    }
+  }
   &__auth-nav {
     display: none;
   }
   &__burger-menu {
+    display: block;
     margin-left: auto;
+    background: transparent;
+    svg path {
+      transition: all 250ms ease;
+    }
+    &:active,
+    &:hover {
+      svg path {
+        fill: $color-black-opacity-85;
+      }
+      cursor: pointer;
+    }
   }
 }
 
@@ -36,6 +66,13 @@
       color: $color-gray;
       font-weight: $font-weight-normal;
       white-space: nowrap;
+      li {
+        transition: all 250ms ease;
+      }
+      li:hover {
+        color: $color-black-opacity-85;
+        cursor: pointer;
+      }
     }
     &__auth-nav {
       margin-left: auto;
